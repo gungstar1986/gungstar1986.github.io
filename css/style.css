@@ -9,10 +9,9 @@ body {
 /* START HEADER PART */
 .site-header-portfolio {
   background: #87509c;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   padding-top: 60px;
-  height: 100vh;
 }
 .container {
   max-width: 1140px;
@@ -466,7 +465,7 @@ body {
 }
 @media screen and (max-width: 650px) {
   .main-haeder-text {
-    font-size: 20pt;
+    font-size: 15pt;
     margin: 100px 10px 0px 10px;
   }
   .button-menu {
