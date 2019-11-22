@@ -1,0 +1,10 @@
+
+@media screen and (max-width: 1366px) {
+    .main-site-container {
+        padding-left: 100px;
+        padding-bottom: 100px;
+    }
+    .happy-clients-container {
+        min-height: 255px;
+    }
+}
