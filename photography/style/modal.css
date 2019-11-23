@@ -4,7 +4,7 @@
     width: 100%;
     position: fixed;
     padding-top: 10%;
-    z-index: 2;
+    z-index: 5;
     backdrop-filter: blur(8px);
 }
 .modal {
@@ -21,4 +21,40 @@
     flex-direction: column;
     border-radius: 20px;
     padding: 0 30px 0 30px;
+    position: relative;
+}
+.accept-button {
+    height: 36px;
+    width: 133px;
+    background: blue;
+    position: absolute;
+    bottom: -11px;
+    left: 68%;
+    padding-top: 10px;
+    border-radius: 20px;
+    color: yellow;
+    cursor: pointer;
+    display: none;
+}
+.accept-button:hover {
+    height: 37px;
+    /* width: 132px; */
+    transition: 0.2s ease;
+}
+.reject-button {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background-image: url(../img/iconfinder_basics-15_296819.png);
+    background-size: 100%;
+    transform: rotate(45deg);
+    top: -12px;
+    left: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.reject-button:hover {
+    height: 41px;
+    width: 41px;
+    transition: 0.2s ease;
 }

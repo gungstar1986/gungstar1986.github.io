@@ -14,10 +14,14 @@ if (document.documentElement.clientWidth < 1366) {
   const intervalWidth = setInterval(() => setWidth(), 1);
 
   setTimeout(() => {
-    function setHeight() {
+    function setHeight( text ) {
       if (newModal.style.height === "400px") {
-        newModal.innerHTML = `Этот сайт работает с разрешениями  экарана 1920*1080px  1680*1050px 1366*768px. Разрешения ниже не поддерживаются.
-           Ваше разрешение эрана ${document.documentElement.clientWidth}px`;
+        // newModal.innerHTML = `Этот сайт работает с разрешениями  экарана 1920*1080px  1680*1050px 1366*768px. Разрешения ниже не поддерживаются.
+        //    Ваше разрешение эрана ${document.documentElement.clientWidth}px`;
+        // newModal.textContent = text
+        document.querySelector(".accept-button").style.transition = "1s ease"
+        document.querySelector(".accept-button").style.display = "block"
+        
         clearInterval(intervalHidth);
       } else {
         countH += 5;
