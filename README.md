@@ -4,6 +4,6 @@ Supported resolutions:
 
 IMORTANT!
 
-1920*1080px
-1680*1050px
-1366*768px
+1920x1080px
+1680x1050px
+1366x768px
