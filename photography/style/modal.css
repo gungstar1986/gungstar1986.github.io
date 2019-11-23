@@ -1,0 +1,24 @@
+.modalParent {
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    padding-top: 10%;
+    z-index: 2;
+    backdrop-filter: blur(8px);
+}
+.modal {
+    background: rgba(255, 238, 4, 0.9);
+    width: 5px; 
+    height: 5px; 
+    margin: auto;
+    color: blue;
+    font-family: monospace;
+    font-size: 16pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 0 30px 0 30px;
+}
