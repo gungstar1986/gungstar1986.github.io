@@ -1,27 +1,13 @@
-// export default function scrrolledTo(position) {
-
-//   const screenRezol = document.documentElement.clientWidth;
-//   const targetPos = document.documentElement.scrollTop;
-//   let interval;
-//   if ( document.documentElement.scrollTop < document.documentElement.clientHeight ) {
-//     document.documentElement.scrollTop += 20;
-//     interval = setTimeout(() => scrrolledTo(), 4);
-//   } else clearTimeout(interval);
-// }
-    
-
-
-export default function scrrolledTo(position) {
-  // const teargetScroll = position;
-  // const clients = document.querySelector(".happy-clients-container")
-  
-  // const screenRezol = document.documentElement.clientHeight;
-  // const targetPos = document.documentElement.scrollTop;
-  // clients.getBoundingClientRect().y = 0;
-  
-  let interval;
-  if ( document.documentElement.scrollTop < document.documentElement.clientHeight ) {
-    document.documentElement.scrollTop += 20;
-    interval = setTimeout(() => scrrolledTo(), 4);
-  } else clearTimeout(interval);
+export default function scrrolledTo(position, correction = 0) {
+  const target = Number(position.toFixed(0));
+  // document.documentElement.clientHeight => Клиетское расширение экрана оси Y
+  // document.documentElement.scrollTop => текущая позиция относительно Top: 0 документа
+  scroll();
+  function scroll() {
+    let interval;
+    if (document.documentElement.scrollTop < target + correction) {
+      document.documentElement.scrollTop += 20;
+      interval = setTimeout(() => scroll(), 4);
+    } else clearTimeout(interval);
+  }
 }
