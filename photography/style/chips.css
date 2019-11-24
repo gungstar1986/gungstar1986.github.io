@@ -1,0 +1,18 @@
+.chips {
+    margin-top: 20px;
+    background: #f2c200;
+    color: #2b2d5c;
+    font-size: 11pt;
+    font-weight: 600;
+    width: 180px;
+    text-align: center;
+    padding-top: 10px;
+    min-height: 30px; 
+    border-radius: 50px;
+}
+.chips-field {
+    width: 200px;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+}
