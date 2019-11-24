@@ -1,5 +1,7 @@
 import modalWindow from "./modal.js";
-if (document.documentElement.clientWidth < 1366) {
+
+export default function windowModal(text) {
+  const message = text;
   const newModal = modalWindow();
   let countW = 0;
   let countH = 0;
@@ -14,14 +16,11 @@ if (document.documentElement.clientWidth < 1366) {
   const intervalWidth = setInterval(() => setWidth(), 1);
 
   setTimeout(() => {
-    function setHeight( text ) {
+    function setHeight() {
       if (newModal.style.height === "400px") {
-        // newModal.innerHTML = `Этот сайт работает с разрешениями  экарана 1920*1080px  1680*1050px 1366*768px. Разрешения ниже не поддерживаются.
-        //    Ваше разрешение эрана ${document.documentElement.clientWidth}px`;
-        // newModal.textContent = text
-        document.querySelector(".accept-button").style.transition = "1s ease"
-        document.querySelector(".accept-button").style.display = "block"
-        
+        document.querySelector(".accept-button").style.display = "block";
+        document.querySelector(".text-zone").style.display = "block";
+        document.querySelector(".text-zone").textContent = message;
         clearInterval(intervalHidth);
       } else {
         countH += 5;

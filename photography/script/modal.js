@@ -1,4 +1,5 @@
 export default function modalWindow () {
+
     // Create modalParent
     const modalParent = document.createElement("div");
     modalParent.classList.add("modalParent");
@@ -9,7 +10,7 @@ export default function modalWindow () {
     modalChild.classList.add("modal");
     const newModal = modalParent.appendChild(modalChild);
     
-    //Create modalButtons
+    //Create acceptButton
     const acceptButton = document.createElement("div");
     acceptButton.classList.add("accept-button");
     newModal.appendChild(acceptButton);
@@ -20,5 +21,10 @@ export default function modalWindow () {
     rejectButton.classList.add("reject-button");
     newModal.appendChild(rejectButton);
     
+    //Create textZone
+    const textZone = document.createElement("div");
+    textZone.classList.add("text-zone");
+    newModal.appendChild(textZone)
+
     return newModal
 }
