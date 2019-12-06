@@ -1,0 +1,17 @@
+.sendMessage {
+    padding-top: 30px;
+}
+.sendMessage textarea {
+    width: 99%;
+}
+.send {
+    text-align: end;
+}
+.send button {
+    width: 100px;
+    height: 25px;
+    background: #5ff417;
+    border: 3px solid #5ff417;
+    border-radius: 23px;
+    margin-right: 3px;
+}

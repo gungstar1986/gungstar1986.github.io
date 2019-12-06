@@ -1,0 +1,13 @@
+.messageWraper {
+    display: flex;
+    flex-direction: row-reverse;
+    background: rgba(3, 158, 153, 0.22);
+    border-radius: 30px;
+    margin: 10px 5px 0 30px;
+}
+.logo {
+    margin: 0 5px 0 30px;
+}
+.message {
+    margin-top: 5px;
+}

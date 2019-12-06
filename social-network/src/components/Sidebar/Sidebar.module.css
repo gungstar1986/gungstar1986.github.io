@@ -1,0 +1,14 @@
+.sidebar {
+    grid-area: s;
+    background: #4e4e4e;
+    padding-top: 30px;
+    min-height: 89vh;
+}
+.sidebar a {
+    color: #f2e9f4;
+    margin: 20px;
+    text-decoration: none;
+}
+.sidebar a.active {
+    color: rgba(67,57,244,0.4);
+}

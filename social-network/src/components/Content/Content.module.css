@@ -1,0 +1,8 @@
+.content {
+    grid-area: c;
+}
+.img {
+    background-image: url(https://images.wallpaperscraft.ru/image/zvezdnoe_nebo_zvezdy_blesk_133871_1920x1080.jpg);
+    background-position: 185px -22px;
+    height: 150px;
+}
