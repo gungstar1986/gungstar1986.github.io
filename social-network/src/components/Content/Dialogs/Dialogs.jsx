@@ -12,13 +12,13 @@ const Dialogs = (props) => {
                 <NavLink to={path} activeClassName={classes.active}> {props.name} </NavLink>
             </div>
         )
-    }
+    };
     const Chat = (props) => {
         const message = props.message
         return (
             <div className={classes.messages}>{message}</div>
         )
-    }
+    };
     const users = props.users.map(user => <DialogItem name={user.name} id={user.id}/>)
     const messages = props.messages.map(el => <Chat message={el.message}/>)
     return (
@@ -32,6 +32,6 @@ const Dialogs = (props) => {
             </div>
         </div>
     )
-}
+};
 
 export default Dialogs;

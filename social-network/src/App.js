@@ -15,8 +15,12 @@ function App(props) {
                 <Sidebar/>
                 <div className="content-wrapper">
                     <Route path='/profile'
-                           render={() => <Content posts={props.profile.postData} addPost={props.profPost}/>}/>
-                    <Route path='/messages' render={() => <Dialogs users={props.messages.usersData}
+                           render={() => <Content posts={props.profile}
+                                                  tempItem={props.tempItem}
+                                                  addPost={props.profPost}/> }/>
+
+                    <Route path='/messages'
+                           render={() => <Dialogs users={props.messages.usersData}
                                                                    messages={props.messages.messagesData}/>}/>
                 </div>
             </div>

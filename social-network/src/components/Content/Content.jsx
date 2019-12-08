@@ -9,7 +9,8 @@ import MyMessage from "./Messages/Message";
 
 const Content = (props) => {
 
-    const myMessages = props.posts.map(el => <MyMessage message={el.post} id={el.id}/>)
+
+    const myMessages = props.posts.postData.map(el => <MyMessage message={el.post} id={el.id}/>)
     return (
         <div className={classes.content}>
             <div className={classes.img}></div>
@@ -17,7 +18,7 @@ const Content = (props) => {
             <Profile/>
 
             {/*// Send message form*/}
-            <MyPosts addPost={props.addPost}/>
+            <MyPosts  tempItem={props.tempItem} addPost={props.addPost} tempMessage={props.posts.tempMessage}/>
 
             {/*// List messages*/}
             {myMessages}

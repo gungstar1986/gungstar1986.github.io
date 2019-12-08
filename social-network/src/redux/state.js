@@ -6,8 +6,11 @@ let countOfPosts = 0;
 
 // Сообщения со страницы пользователя
 const postData = [
-    {id: countOfPosts++, post: `New post ${countOfPosts}`},
-    {id: countOfPosts++, post: `New post ${countOfPosts}`},
+    {id: ++countOfPosts, post: `New post ${countOfPosts}`},
+    {id: ++countOfPosts, post: `New post ${countOfPosts}`},
+]
+const tempMessage = [
+    { id: countOfPosts, post: '' }
 ]
 
 // Спиосок имен в чате
@@ -27,22 +30,26 @@ const messagesData = [
 // Объект Data
 const data = {
     profilePage: {
-        postData
+        postData, tempMessage
     },
     messagePage: {
-        messagesData,usersData
+        messagesData, usersData
     }
 }
 
 
-
 export default data
 
-export const addItemToProfile = (item) => {
-    postData.push({id: ++countOfPosts, post: item})
-    reRenderDomTree(data)
-}
-export const addItemToChat = (item) => {
-    messagesData.push ({id: ++countOfMessages, message: item})
-}
 
+export const addTempItem = (item) => {
+    tempMessage.post = item;
+    reRenderDomTree(data)
+};
+export const addItemToProfile = () => {
+    postData.push({id: ++countOfPosts, post: tempMessage.post});
+    tempMessage.post = '';
+    reRenderDomTree(data)
+};
+export const addItemToChat = (item) => {
+    messagesData.push({id: ++countOfMessages, message: item})
+};
