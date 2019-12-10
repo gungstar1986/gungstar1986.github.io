@@ -54,4 +54,9 @@ const store = {
     }
 };
 
+export const addPostActionCreator = () => ({type: "ADD-POST-TO-WALL"})
+export const addTempPostActionCreator = (text) => ({type: "ADD-TEMPPOST-TO-WALL", text: text});
+export const addItemToChatActionCreator = () => ({type: "ADD-POST-TO-CHAT"});
+export const addTempItemToChatActionCreator = (text) => ({type: "ADD-TEMPPOST-TO-CHAT", text: text});
+
 export default store
