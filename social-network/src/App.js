@@ -8,6 +8,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 
 
 function App(props) {
+
     return (
         <BrowserRouter>
             <div className="app-container">
@@ -21,7 +22,10 @@ function App(props) {
 
                     <Route path='/messages'
                            render={() => <Dialogs users={props.messages.usersData}
-                                                                   messages={props.messages.messagesData}/>}/>
+                                                  chat={props.messages.tempChat}
+                                                  messages={props.messages.messagesData}
+                                                  addTempChatItem={props.addTempChatItem}
+                                                  addItemToChat={props.addItemToChat}/>}/>
                 </div>
             </div>
         </BrowserRouter>

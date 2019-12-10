@@ -5,6 +5,7 @@ import Send from "../Send/Send";
 
 
 const Dialogs = (props) => {
+
     const DialogItem = (props) => {
         const path = `/messages/${props.id}`
         return (
@@ -28,7 +29,9 @@ const Dialogs = (props) => {
             </div>
             <div className={classes.chat}>
                 {messages}
-                <Send/>
+                <Send chat={props.chat}
+                      addTempChatItem={props.addTempChatItem}
+                      addItemToChat={props.addItemToChat}/>
             </div>
         </div>
     )
