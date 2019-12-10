@@ -20,8 +20,8 @@ const Dialogs = (props) => {
             <div className={classes.messages}>{message}</div>
         )
     };
-    const users = props.users.map(user => <DialogItem name={user.name} id={user.id}/>)
-    const messages = props.messages.map(el => <Chat message={el.message}/>)
+    const users = props.users.map(user => <DialogItem name={user.name} id={user.id}/>);
+    const messages = props.messages.map(el => <Chat message={el.message}/>);
     return (
         <div className={classes.dialogs}>
             <div className={classes.chatList}>
@@ -30,8 +30,7 @@ const Dialogs = (props) => {
             <div className={classes.chat}>
                 {messages}
                 <Send chat={props.chat}
-                      addTempChatItem={props.addTempChatItem}
-                      addItemToChat={props.addItemToChat}/>
+                      dispatch={props.dispatch}/>
             </div>
         </div>
     )

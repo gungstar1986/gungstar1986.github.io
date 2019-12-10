@@ -5,12 +5,14 @@ import classes from "./Send.module.css"
 const Send = (props) => {
     const tempChatText = props.chat.message;
     const textareaText = React.createRef();
-
     const addTempItem = () => {
-        props.addTempChatItem(textareaText.current.value)
+        props.dispatch({
+            type: "ADD-TEMPPOST-TO-CHAT",
+            text: textareaText.current.value
+        })
     };
     const addItem = () => {
-        props.addItemToChat()
+        props.dispatch({type: "ADD-POST-TO-CHAT"})
     };
     return (
         <div className={classes.sendMessage}>
@@ -20,7 +22,7 @@ const Send = (props) => {
             </div>
         </div>
     )
-}
+};
 
 
 export default Send

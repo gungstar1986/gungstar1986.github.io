@@ -3,15 +3,23 @@ import classes from "./Posts.module.css"
 
 
 const MyPosts = (props) => {
-
+    // Получение value плейсхолдера ref={}
     const textareaText = React.createRef();
-    const newMessage = props.tempMessage.post;
 
+    // Изменение текста в плейсхолдере
     const changePlaceholder = () => {
-        props.tempItem(textareaText.current.value)
+        props.dispatch({
+            type: "ADD-TEMPPOST-TO-WALL",
+            text: textareaText.current.value
+        })
     };
+
+    // Получение value из Store/State
+    const newMessage = props.tempMessage.post;
     const addItem = () => {
-        props.addPost();
+        props.dispatch({
+            type: "ADD-POST-TO-WALL",
+        });
     };
 
     return (

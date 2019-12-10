@@ -17,15 +17,12 @@ function App(props) {
                 <div className="content-wrapper">
                     <Route path='/profile'
                            render={() => <Content posts={props.profile}
-                                                  tempItem={props.tempItem}
-                                                  addPost={props.profPost}/> }/>
-
+                                                  dispatch={props.dispatch}/>}/>
                     <Route path='/messages'
                            render={() => <Dialogs users={props.messages.usersData}
                                                   chat={props.messages.tempChat}
                                                   messages={props.messages.messagesData}
-                                                  addTempChatItem={props.addTempChatItem}
-                                                  addItemToChat={props.addItemToChat}/>}/>
+                                                  dispatch={props.dispatch}/>}/>
                 </div>
             </div>
         </BrowserRouter>
