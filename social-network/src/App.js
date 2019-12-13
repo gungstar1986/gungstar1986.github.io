@@ -8,25 +8,22 @@ import {BrowserRouter, Route} from "react-router-dom";
 
 
 function App(props) {
-
     return (
-        <BrowserRouter>
-            <div className="app-container">
-                <Header/>
-                <Sidebar/>
-                <div className="content-wrapper">
-                    <Route path='/profile'
-                           render={() => <Content posts={props.profile}
-                                                  dispatch={props.dispatch}/>}/>
-                    <Route path='/messages'
-                           render={() => <Dialogs users={props.messages.usersData}
-                                                  chat={props.messages.tempChat}
-                                                  messages={props.messages.messagesData}
-                                                  dispatch={props.dispatch}/>}/>
-                </div>
+        <div className="app-container">
+            <Header/>
+            <Sidebar/>
+            <div className="content-wrapper">
+                <Route path='/profile'
+                       render={() => <Content posts={props.profile}
+                                              dispatch={props.dispatch}/>}/>
+                <Route path='/messages'
+                       render={() => <Dialogs users={props.messages.usersData}
+                                              chat={props.messages.tempChat}
+                                              messages={props.messages.messagesData}
+                                              dispatch={props.dispatch}/>}/>
             </div>
-        </BrowserRouter>
+        </div>
     );
-}
+};
 
 export default App;

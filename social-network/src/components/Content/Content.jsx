@@ -6,7 +6,7 @@ import MyMessage from "./Messages/Message";
 
 
 const Content = (props) => {
-    const myMessages = props.posts.postData.map(el => <MyMessage message={el.post} id={el.id}/>)
+    const myMessages = props.posts.postData.map(el => <MyMessage message={el.post} id={el.id}/>);
     return (
         <div className={classes.content}>
             <div className={classes.img}/>;
@@ -18,6 +18,6 @@ const Content = (props) => {
             {myMessages}
         </div>
     )
-}
+};
 export default Content;
 

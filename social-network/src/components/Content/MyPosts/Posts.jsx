@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Posts.module.css"
-import {addTempPostActionCreator, addPostActionCreator} from "../../../redux/state";
+import {addTempPostActionCreator, addPostActionCreator} from "../../../redux/profilePage-reducer";
 
 
 const MyPosts = (props) => {
@@ -11,7 +11,8 @@ const MyPosts = (props) => {
 
 
     // Change text into placeholder and State
-    const changePlaceholder = () => props.dispatch(addTempPostActionCreator(textareaText.current.value));
+    const changePlaceholder = () =>
+        props.dispatch(addTempPostActionCreator(textareaText.current.value));
     // send Post to the State
     const addItem = () => props.dispatch(addPostActionCreator());
 
