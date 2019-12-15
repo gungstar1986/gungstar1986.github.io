@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./Header.module.css"
 import img from "../img/Silc.png"
 
-const Header = (props) => {
+const Header = () => {
     return (
         <header className={classes.header}>
             <img src={img} alt=""/>

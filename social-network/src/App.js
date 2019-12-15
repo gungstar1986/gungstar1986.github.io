@@ -7,20 +7,14 @@ import Dialogs from "./components/Content/Dialogs/Dialogs";
 import {Route} from "react-router-dom";
 
 
-function App(props) {
+function App() {
     return (
         <div className="app-container">
             <Header/>
             <Sidebar/>
             <div className="content-wrapper">
-                <Route path='/profile'
-                       render={() => <Content posts={props.profile}
-                                              dispatch={props.dispatch}/>}/>
-                <Route path='/messages'
-                       render={() => <Dialogs users={props.messages.usersData}
-                                              chat={props.messages.tempChat}
-                                              messages={props.messages.messagesData}
-                                              dispatch={props.dispatch}/>}/>
+                <Route path='/profile' render={() => <Content/>}/>
+                <Route path='/messages' render={() => <Dialogs/>}/>
             </div>
         </div>
     );

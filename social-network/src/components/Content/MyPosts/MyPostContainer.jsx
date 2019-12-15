@@ -1,14 +1,19 @@
 import React from "react";
 import MyPosts from "./Posts";
+import {connect} from "react-redux";
 import {addPostActionCreator, addTempPostActionCreator} from "../../../redux/profilePage-reducer";
 
-
-const MyPostContainer = (props) => {
-    // Get tempMessage from State
-    const newPost = props.tempMessage.post;
-    const addTempPostText = (text) => props.dispatch(addTempPostActionCreator(text));
-    const addPost = () => props.dispatch(addPostActionCreator());
-    return <MyPosts newPost={newPost} addTempPostText={addTempPostText} addPost={addPost}/>
+const mapStateToProps = (state) => {
+    return {
+        profilePage: state.profilePage
+    }
 };
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addTempPostText: (text) => dispatch(addTempPostActionCreator(text)),
+        addPost: () => dispatch(addPostActionCreator())
+    }
+};
+const MyPostContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 
-export default MyPostContainer
+export default MyPostContainer;

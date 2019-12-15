@@ -16,3 +16,48 @@
     border-radius: 23px;
     margin-right: 3px;
 }
+
+
+.dialogs {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+.chatList {
+    width: 30%;
+    /*background: lime;*/
+    padding: 10px;
+}
+.chat {
+    width: 70%;
+    background: #4e4e4e;
+    border-radius: 10px;
+    padding: 10px;
+}
+.item {
+    margin: 7px 15px 7px 0;
+
+}
+.item a {
+    color: antiquewhite;
+    font-weight: 400;
+    padding: 5px 0 0 10px;
+    height: 30px;
+    margin: 10px auto;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 400;
+    background: rgba(38, 176, 250, 0.75);
+    display: block;
+}
+.item a.active {
+    background: #4e4e4e;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 150%;
+    transition: 0.5s;
+}
+.messages {
+    color: #f2e9f4;
+}

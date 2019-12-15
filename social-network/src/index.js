@@ -4,13 +4,15 @@ import App from "./App";
 import React from "react";
 import store from "./redux/redux-store";
 import {BrowserRouter} from "react-router-dom";
+import {Provider} from "react-redux";
+
 
 const reRenderDomTree = () => {
     ReactDOM.render(
         <BrowserRouter>
-            <App profile={store.getState().profilePage}
-                 messages={store.getState().messagePage}
-                 dispatch={store.dispatch.bind(store)}/>,
+            <Provider store={store}>
+                <App/>
+            </Provider>
         </BrowserRouter>, document.getElementById('root'));
 };
 
