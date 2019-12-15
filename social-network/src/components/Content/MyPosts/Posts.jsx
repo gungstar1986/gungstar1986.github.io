@@ -1,25 +1,18 @@
 import React from "react";
 import classes from "./Posts.module.css"
-import {addTempPostActionCreator, addPostActionCreator} from "../../../redux/profilePage-reducer";
 
 
 const MyPosts = (props) => {
     // Получение value плейсхолдера ref={}
     const textareaText = React.createRef();
-    // Get tempMessage from State
-    const newMessage = props.tempMessage.post;
-
-
     // Change text into placeholder and State
-    const changePlaceholder = () =>
-        props.dispatch(addTempPostActionCreator(textareaText.current.value));
-    // send Post to the State
-    const addItem = () => props.dispatch(addPostActionCreator());
-
+    const changePlaceholder = () => props.addTempPostText(textareaText.current.value);
+    // Add post into State
+    const addItem = () => props.addPost();
     return (
         <div className={classes.myposts}>
             <div className={classes.headline}>My Posts</div>
-            <textarea ref={textareaText} value={newMessage}
+            <textarea ref={textareaText} value={props.newPost}
                       onChange={changePlaceholder}
                       placeholder="Write Massage"/>
             <div className={classes.send}>

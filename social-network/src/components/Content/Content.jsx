@@ -1,8 +1,8 @@
 import React from "react";
 import classes from "./Content.module.css"
 import Profile from "./Profile/Profile";
-import MyPosts from "./MyPosts/Posts";
 import MyMessage from "./Messages/Message";
+import MyPostContainer from "./MyPosts/MyPostContainer";
 
 
 const Content = (props) => {
@@ -13,7 +13,7 @@ const Content = (props) => {
             // Avatar + description
             <Profile/>;
             // Send message form
-            <MyPosts dispatch={props.dispatch} tempMessage={props.posts.tempMessage}/>;
+            <MyPostContainer dispatch={props.dispatch} tempMessage={props.posts.tempMessage}/>;
             // List messages
             {myMessages}
         </div>
