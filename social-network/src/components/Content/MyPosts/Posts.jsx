@@ -5,16 +5,20 @@ import MyMessage from "../Messages/Message";
 
 
 const MyPosts = (props) => {
+    // Render message list
     const state = props.profilePage.postData;
-    const placeholderValue = props.profilePage.tempMessage.post;
     const myMessages = state.map(el => <MyMessage message={el.post} id={el.id}/>);
 
-    // Получение value плейсхолдера ref={}
+    // Get placeholder value from State
+    const placeholderValue = props.profilePage.tempMessage;
+
+    // Get placeholder value from USER
     const textareaText = React.createRef();
-    // Change text into placeholder and State
+
+    // Dispatch functions
     const changePlaceholder = () => props.addTempPostText(textareaText.current.value);
-    // Add post into State
     const addItem = () => props.addPost();
+
     return (
         <div className={classes.myposts}>
             <div className={classes.headline}>My Posts</div>

@@ -9,5 +9,8 @@ const reducers = combineReducers({
     sidebar: sideBarPageReducer
 });
 
+
+
 const store = createStore(reducers);
+window.store = store;
 export default store;

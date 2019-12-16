@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom";
 
 
 const Send = (props) => {
+
     // Render users list
     const DialogItem = (props) => {
         const path = `/messages/${props.id}`;
@@ -14,6 +15,7 @@ const Send = (props) => {
         )
     };
     const users = props.users.map(user => <DialogItem name={user.name} id={user.id}/>);
+
     // Render messages list
     const Chat = (props) => {
         const message = props.message
@@ -22,8 +24,11 @@ const Send = (props) => {
         )
     };
     const messages = props.messages.map(el => <Chat message={el.message}/>);
+
     // Get placeholder value
     const textareaText = React.createRef();
+
+    // Dispatch functions
     const addTempItem = () => props.changePlaceholder(textareaText.current.value);
     const addItem = () => props.addPost();
 

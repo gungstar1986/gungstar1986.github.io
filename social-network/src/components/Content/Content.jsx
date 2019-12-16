@@ -3,7 +3,6 @@ import classes from "./Content.module.css"
 import Profile from "./Profile/Profile";
 import MyPostContainer from "./MyPosts/MyPostContainer";
 
-
 const Content = () => {
     return (
         <div className={classes.content}>
@@ -13,5 +12,6 @@ const Content = () => {
         </div>
     )
 };
+
 export default Content;
 
