@@ -1,7 +1,7 @@
 Usage:
- 1. Use "git clone" command into you're git Bash to clone repository
+ 1. Clone gungstar1986.github.io repository. You need to use "git clone ...url" command into you're git Bash to clone repository
  2. Use "cd gungstar1986.github.io/social-network/" command to choose social-network folder
- 3. Use "npm install" command to install dependensies (it take a few minutes, please, be patient)
+ 3. Use "npm install" command to install dependensies (it takes a few minutes, please, be patient)
  4. Use "npm start" command to launch the project
 
 
