@@ -9,7 +9,9 @@ import {withRouter} from "react-router-dom";
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
-    const changeProfilePage = this.props.match.params.userId; // Find user ID ;-)
+
+    let changeProfilePage = this.props.match.params.userId || 5471; // Find user ID ;-)
+
         axios
             .get(`https://social-network.samuraijs.com/api/1.0/profile/${changeProfilePage}`)
             .then(response => {

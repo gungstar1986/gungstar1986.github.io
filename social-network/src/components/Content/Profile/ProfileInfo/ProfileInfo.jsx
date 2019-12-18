@@ -3,6 +3,7 @@ import classes from "./ProfileInfo.module.css";
 import Preloader from "../../../Preloader/Preloader";
 
 const ProfileInfo = (props) => {
+
     if (!props.profile) return <Preloader/>;
 
     const testMap = () => {
@@ -30,7 +31,7 @@ const ProfileInfo = (props) => {
                 </div>
                 <div className={classes.descriptContainer}>
                     <div className={classes.description}>Обо мне: </div>
-                    <div className={classes.propsItem}>{props.profile.aboutMe || "null"}</div>
+                    <div className={classes.propsItem}>{props.profile.aboutMe || "Ничего не придумал"}</div>
                 </div>
                 <div className={classes.descriptContainer}>
                     <div className={classes.description}>Ищу работу?: </div>
