@@ -16,21 +16,25 @@
     width: 25%;
     background: #c17d78;
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
 }
 
 .userFullName {
-    margin: 5px auto;
-    color: #5ff417;
+    color: #f2e9f4;
+    margin-top: 5px;
+    display: inline-block;
 }
 
 .avatar {
-    margin: 0 auto;
+    /*margin: 0 auto;*/
 }
 
 .avatar img {
     width: 100px;
+    height: 100px;
 }
 
 .follow {

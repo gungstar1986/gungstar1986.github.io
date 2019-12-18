@@ -1,5 +1,6 @@
 import React from 'react'
 import classes from "./Users.module.css"
+import {NavLink} from "react-router-dom";
 
 const Users = (props) => {
     const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -19,14 +20,18 @@ const Users = (props) => {
             {props.users.map((user) => <div key={user.id} className={classes.usersContainer}>
                 <div className={classes.userContainerMain}>
                     <div className={classes.userAvatar}>
+
+                        <NavLink to={`/profile/${user.id}`}>
                         <div className={classes.userFullName}>{user.name}</div>
                         <div className={classes.avatar}><img src={user.photos.small
                             ? user.photos.small
                             : "https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-128.png"} alt=""/>
                         </div>
+                       </NavLink>
+
+                        {/* Render 2 buttons with two dispatch functions */}
                         <div>
 
-                            {/* Render 2 buttons with two dispatch functions */}
                             {user.followed
                                 ? <button className={classes.follow} onClick={() => {
                                     props.unfollow(user.id)
@@ -34,9 +39,8 @@ const Users = (props) => {
                                 : <button className={classes.follow} onClick={() => {
                                     props.follow(user.id)
                                 }}> Follow </button>}
-                            {/* Render 2 buttons with two dispatch functions */}
-
                         </div>
+
                     </div>
                     <div className={classes.userInfo}>
                         <div className={classes.userInfoArea}>
@@ -60,6 +64,7 @@ const Users = (props) => {
         </div>
     )
 };
+
 export default Users
 
 
