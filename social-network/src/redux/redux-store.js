@@ -8,10 +8,8 @@ const reducers = combineReducers({
     profilePage: profilePageReducer,
     messagePage: messagePageReducer,
     sidebar: sideBarPageReducer,
-    usersPage: usersPageReducer
+    usersPage: usersPageReducer,
 });
-
-
 
 const store = createStore(reducers);
 window.store = store;

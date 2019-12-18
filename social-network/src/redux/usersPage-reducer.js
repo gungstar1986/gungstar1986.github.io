@@ -4,53 +4,16 @@ const SET_USERS = "SET-USERS";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
+const SET_USER_PROFILE = "SET_USER_PROFILE";
 
-
-// Default State statement
-// const stateByDefault = {
-//     users:
-//         [{
-//             id: 1,
-//             fullName: "Anna",
-//             followed: true,
-//             location: {city: "Kharkov", country: "Ukraine"},
-//             status: "Happy",
-//             avatar: "https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-128.png",
-//             sex: 'man'
-//         }, {
-//             id: 2,
-//             fullName: "Igor",
-//             followed: true,
-//             location: {city: "Moskow", country: "Russia"},
-//             status: "Happy",
-//             avatar: "https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-128.png",
-//             sex: 'woman'
-//         }, {
-//             id: 3,
-//             fullName: "Olga",
-//             followed: false,
-//             location: {city: "Lviv", country: "Ukraine"},
-//             status: "Happy",
-//             avatar: "https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-128.png",
-//             sex: 'woman'
-//         }, {
-//             id: 4,
-//             fullName: "Maks",
-//             followed: false,
-//             location: {city: "Odessa", country: "Ukraine"},
-//             status: "Real programmer",
-//             avatar: "https://cdn2.iconfinder.com/data/icons/people-80/96/Picture1-128.png",
-//             sex: 'man'
-//         }]
-// };
+// State by default
 const initialState = {
     users: [],
     totalUsersCount: 0,
     pageSize: 50,
     currentPage: 1,
-    isFetching: true
+    isFetching: true,
 };
-
 
 // Store reducer
 const usersPageReducer = (state = initialState, action) => {
@@ -93,15 +56,14 @@ const usersPageReducer = (state = initialState, action) => {
         }
     }
     if (action.type === TOGGLE_IS_FETCHING) {
-        console.log(action.boolean)
         return {
             ...state,
             isFetching: action.boolean
         }
     }
+
     return state
 };
-
 
 // Action creators
 export const follow = (userId) => ({type: "FOLLOW", userId});
@@ -110,5 +72,6 @@ export const setUsers= (users) => ({type: "SET-USERS", users});
 export const setCurrentPage = (currentPage) => ({type: "SET_CURRENT_PAGE", currentPage});
 export const setTotalUsersCount = (totalUsersCount) => ({type: "SET_TOTAL_USERS_COUNT", totalUsersCount});
 export const setIsFetching = (boolean) => ({type: "TOGGLE_IS_FETCHING", boolean});
+
 
 export default usersPageReducer;
