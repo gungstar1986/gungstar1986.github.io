@@ -18,7 +18,7 @@ const Send = (props) => {
 
     // Render messages list
     const Chat = (props) => {
-        const message = props.message
+        const message = props.message;
         return (
             <div className={classes.messages}>{message}</div>
         )
