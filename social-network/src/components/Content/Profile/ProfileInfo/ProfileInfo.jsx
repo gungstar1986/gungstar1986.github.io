@@ -6,10 +6,9 @@ const ProfileInfo = (props) => {
 
     if (!props.profile) return <Preloader/>;
 
-    const testMap = () => {
+    const contacts = () => {
         const stack = [];
         for (const i in props.profile.contacts) {
-            // stack.push(`${i}: ${props.profile.contacts[i]}`)
             stack.push([[i], [props.profile.contacts[i] || '']])
         }
         return (stack)
@@ -26,32 +25,31 @@ const ProfileInfo = (props) => {
             </div>
             <div className={classes.person}>
                 <div className={classes.descriptContainer}>
-                    <div className={classes.description}>Полное имя: </div>
+                    <div className={classes.description}>Полное имя:</div>
                     <div className={classes.propsItem}>{props.profile.fullName || "Пока не придумал"}</div>
                 </div>
                 <div className={classes.descriptContainer}>
-                    <div className={classes.description}>Обо мне: </div>
+                    <div className={classes.description}>Обо мне:</div>
                     <div className={classes.propsItem}>{props.profile.aboutMe || "Ничего не придумал"}</div>
                 </div>
                 <div className={classes.descriptContainer}>
-                    <div className={classes.description}>Ищу работу?: </div>
+                    <div className={classes.description}>Ищу работу?:</div>
                     <div className={classes.propsItem}>{
                         props.profile.lookingForAJob ? "Да" : "Нет"}</div>
                 </div>
                 <div className={classes.descriptContainer}>
 
-                    <div className={classes.description}>Контакты: </div>
-                    <div className={classes.socialContainer}> {testMap().map(elem => <div className={classes.social}>
+                    <div className={classes.description}>Контакты:</div>
+                    <div className={classes.socialContainer}> {contacts().map(elem => <div className={classes.social}>
                         <ul>
                             <div className={classes.socialLinks}>{elem[0]} {elem[1] == ''
-                                ?  ''
-                                :  <a href={elem[1][0]}> {elem[1][0]}</a>}</div>
-
+                                ? ''
+                                : <a href={elem[1][0]}> {elem[1][0]}</a>}</div>
                         </ul>
-                    </div>)} </div>
+                    </div>)}
+                    </div>
 
                 </div>
-
             </div>
         </div>
     )

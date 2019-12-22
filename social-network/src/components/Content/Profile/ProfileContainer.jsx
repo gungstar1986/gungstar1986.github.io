@@ -4,20 +4,16 @@ import * as axios from "axios";
 import {connect} from "react-redux";
 import {setUserProfile} from "../../../redux/profilePage-reducer";
 import {withRouter} from "react-router-dom";
+import {profilePage} from "../../Api/api";
 
 
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
-
     let changeProfilePage = this.props.match.params.userId || 5471; // Find user ID ;-)
-
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/profile/${changeProfilePage}`)
-            .then(response => {
-                this.props.setUserProfile(response.data);
-            })
+        profilePage.getUserProfile(changeProfilePage).then(response => this.props.setUserProfile(response.data))
     }
+
     render() {
         return (
             <div>

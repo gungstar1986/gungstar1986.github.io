@@ -4,7 +4,8 @@ const SET_USERS = "SET-USERS";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
-const SET_USER_PROFILE = "SET_USER_PROFILE";
+const TOGGLE_IS_DISABLE = "TOGGLE_IS_DISABLE";
+
 
 // State by default
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
     pageSize: 50,
     currentPage: 1,
     isFetching: true,
+    isDisable: []
 };
 
 // Store reducer
@@ -61,6 +63,16 @@ const usersPageReducer = (state = initialState, action) => {
             isFetching: action.boolean
         }
     }
+    if (action.type === TOGGLE_IS_DISABLE) {
+        return {
+            ...state,
+            isDisable: action.boolean // нСчитываем булево значеие из action
+                // Если в экшене передано true, то далем копию state.isDisable и пушим в него ID юзера
+                ? [...state.isDisable, action.userID]
+                // Если в экшене передано false, то фильтруем и возвращаем новый массив с юзерами, чьи ID не совпадат с переданным в экшене
+                : [state.isDisable.filter(id => id !== action.userID)]
+        }
+    }
 
     return state
 };
@@ -72,6 +84,7 @@ export const setUsers= (users) => ({type: "SET-USERS", users});
 export const setCurrentPage = (currentPage) => ({type: "SET_CURRENT_PAGE", currentPage});
 export const setTotalUsersCount = (totalUsersCount) => ({type: "SET_TOTAL_USERS_COUNT", totalUsersCount});
 export const setIsFetching = (boolean) => ({type: "TOGGLE_IS_FETCHING", boolean});
+export const setIsDisable = (boolean, userID) => ({type: "TOGGLE_IS_DISABLE", boolean, userID});
 
 
 export default usersPageReducer;

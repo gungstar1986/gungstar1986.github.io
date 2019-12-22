@@ -1,7 +1,34 @@
-.header {
+.headerContainer {
     grid-area: h;
+    height: 80px;
     background: #4e4e4e;
 }
-header img {
-    margin: 15px 0 0 50px;
+
+.header img {
+    margin: 25px 0 0 160px;
+}
+
+.header {
+    position: relative;
+}
+
+.userLogo {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 150px;
+    top: 5px;
+    border: 2px solid rgba(242, 243, 10, 0.51);
+    padding: 0 40px;
+    border-radius: 100px;
+}
+
+.userLogo img {
+    margin: 0 auto;
+}
+
+.userName {
+    margin: 0 auto;
+    color: #f2e9f4;
+    text-decoration: none;
 }
