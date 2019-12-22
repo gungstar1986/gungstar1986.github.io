@@ -1,3 +1,5 @@
+import {profilePage} from "../components/Api/api";
+
 const ADD_POST_TO_WALL = "ADD-POST-TO-WALL";
 const ADD_TEMPPOST_TO_WALL = "ADD-TEMPPOST-TO-WALL";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
@@ -42,5 +44,10 @@ const profilePageReducer = (state = stateByDefault, action) => {
 export const addPostActionCreator = () => ({type: "ADD-POST-TO-WALL"});
 export const addTempPostActionCreator = (text) => ({type: "ADD-TEMPPOST-TO-WALL", text: text});
 export const setUserProfile = (profile) => ({type: "SET_USER_PROFILE" , profile});
+
+export const getUser = (page) => (dispatch) => {
+    profilePage.getUserProfile(page)
+        .then(response => dispatch(setUserProfile(response.data)) )
+}
 
 export default profilePageReducer;

@@ -1,17 +1,15 @@
 import React from "react";
 import Profile from "./Profile";
-import * as axios from "axios";
 import {connect} from "react-redux";
-import {setUserProfile} from "../../../redux/profilePage-reducer";
+import {getUser} from "../../../redux/profilePage-reducer";
 import {withRouter} from "react-router-dom";
-import {profilePage} from "../../Api/api";
 
 
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
-    let changeProfilePage = this.props.match.params.userId || 5471; // Find user ID ;-)
-        profilePage.getUserProfile(changeProfilePage).then(response => this.props.setUserProfile(response.data))
+        let changeProfilePage = this.props.match.params.userId || 5471; // Find user ID ;-)
+        this.props.getUser(changeProfilePage)
     }
 
     render() {
@@ -29,7 +27,7 @@ const mapStateToProps = (state) => {
     }
 };
 const mapDispatchToProps = {
-    setUserProfile
+    getUser
 };
 
 const UserProfileContainer = connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfileContainer));

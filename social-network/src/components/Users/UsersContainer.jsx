@@ -1,33 +1,27 @@
 import React from "react"
 import {connect} from "react-redux";
 import {
-    follow, setIsFetching, setCurrentPage, setTotalUsersCount, setUsers, unfollow, setIsDisable
+    unfollowUser,
+    setIsDisable,
+    getUsersList,
+    getUsersFromCurrentPage, followUser
 } from "../../redux/usersPage-reducer";
-import * as axios from "axios";
 import Users from "./Users";
 import Preloader from "../Preloader/Preloader";
 import {usersPage} from "../Api/api";
 
 class UsersContainerComponent extends React.Component {
     componentDidMount() {
-        // Add loader animation
-        this.props.setIsFetching(true);
-        // GET request to server
-        usersPage.getUsers (this.props.currentPage, this.props.pageSize).then(response => {
-            this.props.setIsFetching(false);
-            this.props.setUsers(response.items);
-            this.props.setTotalUsersCount(response.totalCount)
-        })
+
+        this.props.getUsersList(this.props.currentPage, this.props.pageSize)
+
     }
 
     // Change page number function + update users via JSON request (It sending via props to the <Users/> component)
     onChangePage = (page) => {
-        this.props.setIsFetching(true); // Add loader animation
-        this.props.setCurrentPage(page);
-        usersPage.getUsers(page, this.props.pageSize).then(response => {
-            this.props.setIsFetching(false);
-            this.props.setUsers(response.items)
-        })
+
+        this.props.getUsersFromCurrentPage(page, this.props.pageSize)
+
     };
 
     render() {
@@ -42,8 +36,8 @@ class UsersContainerComponent extends React.Component {
                 currentPage={this.props.currentPage}
                 onChangePage={this.onChangePage}
                 users={this.props.users}
-                follow={this.props.follow}
-                unfollow={this.props.unfollow}
+                follow={this.props.followUser}
+                unfollow={this.props.unfollowUser}
                 usersPage={usersPage}
                 isDisable={this.props.isDisable}
                 setDisable={this.props.setIsDisable}
@@ -63,13 +57,11 @@ const mapStateToProps = (state) => {
     }
 };
 const mapDispatchToProps = {
-    follow,
-    unfollow,
-    setUsers,
-    setCurrentPage,
-    setTotalUsersCount,
-    setIsFetching,
-    setIsDisable
+    followUser,
+    unfollowUser,
+    setIsDisable,
+    getUsersList,
+    getUsersFromCurrentPage
 };
 
 const UserContainer = connect(mapStateToProps, mapDispatchToProps)(UsersContainerComponent);

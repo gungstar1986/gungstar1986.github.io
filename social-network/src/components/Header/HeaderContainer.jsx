@@ -2,19 +2,12 @@ import React from "react";
 import Header from "./Header";
 import classes from "./Header.module.css"
 import {connect} from "react-redux";
-import {setAuthUserData} from "../../redux/auth-Reducer";
-import {auth} from "../Api/api";
-
+import {getAuthUserData} from "../../redux/auth-Reducer";
 
 class HeaderContainerComponent extends React.Component {
     componentDidMount() {
-        auth.getAuthInfo().then(response => {
-            if (response.resultCode === 0) {
-                this.props.setAuthUserData(response.data);
-            }
-        })
+        this.props.getAuthUserData()
     }
-
     render() {
         return (
             <div className={classes.headerContainer}>
@@ -23,15 +16,13 @@ class HeaderContainerComponent extends React.Component {
         )
     }
 }
-
 const mapStateToProps = (state) => {
     return {
         userAuthData: state.userAuthData
     }
 };
 const mapDispatchToProps = {
-    setAuthUserData
+    getAuthUserData
 };
-
 const HeaderContainer = connect(mapStateToProps, mapDispatchToProps)(HeaderContainerComponent);
 export default HeaderContainer

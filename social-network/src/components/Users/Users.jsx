@@ -1,7 +1,6 @@
 import React from 'react'
 import classes from "./Users.module.css"
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
 
 const Users = (props) => {
     const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -34,32 +33,13 @@ const Users = (props) => {
                         <div>
 
                             {user.followed
-                                ? <button disabled={props.isDisable.some(u => u === user.id)} className={classes.follow} onClick={() => {
+                                ? <button disabled={props.isDisable.some(u => u === user.id)}
+                                          className={classes.follow}
+                                          onClick={() => {props.unfollow(user.id)}}> Unfollow </button>
 
-                                    props.setDisable(true, user.id);
-                                    props.usersPage.unfollowUser(user.id).then(response => {
-                                        if (response.resultCode === 0) {
-                                            props.unfollow(user.id)
-                                        }
-                                        props.setDisable(false, user.id)
-                                    });
-
-                                }}> Unfollow </button>
-
-                                : <button disabled={props.isDisable.some(u => u === user.id)} className={classes.follow} onClick={() => {
-
-                                    props.setDisable(true, user.id);
-                                    props.usersPage.followUser(user.id).then(response => {
-                                        if (response.resultCode === 0) {
-                                            props.follow(user.id)
-                                            console.log("then true")
-                                        }
-                                        props.setDisable(false, user.id)
-                                        console.log("then false")
-                                    });
-
-                                }}> Follow </button>}
-
+                                : <button disabled={props.isDisable.some(u => u === user.id)}
+                                          className={classes.follow}
+                                          onClick={() => {props.follow(user.id) }}> Follow </button>}
                         </div>
                     </div>
                     <div className={classes.userInfo}>
