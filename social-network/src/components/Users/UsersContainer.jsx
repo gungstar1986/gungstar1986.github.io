@@ -9,19 +9,19 @@ import {
 import Users from "./Users";
 import Preloader from "../Preloader/Preloader";
 import {usersPage} from "../Api/api";
+import withAuthRedirect from "../AuthRedirect/withAuthRedirect";
+import {compose} from "redux";
+
+
 
 class UsersContainerComponent extends React.Component {
     componentDidMount() {
-
         this.props.getUsersList(this.props.currentPage, this.props.pageSize)
-
     }
 
     // Change page number function + update users via JSON request (It sending via props to the <Users/> component)
     onChangePage = (page) => {
-
         this.props.getUsersFromCurrentPage(page, this.props.pageSize)
-
     };
 
     render() {
@@ -53,7 +53,7 @@ const mapStateToProps = (state) => {
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
-        isDisable: state.usersPage.isDisable
+        isDisable: state.usersPage.isDisable,
     }
 };
 const mapDispatchToProps = {
@@ -64,5 +64,7 @@ const mapDispatchToProps = {
     getUsersFromCurrentPage
 };
 
-const UserContainer = connect(mapStateToProps, mapDispatchToProps)(UsersContainerComponent);
+
+
+const UserContainer = compose(connect(mapStateToProps, mapDispatchToProps), withAuthRedirect) (UsersContainerComponent);
 export default UserContainer;

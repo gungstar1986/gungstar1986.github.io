@@ -1,6 +1,7 @@
 import React from "react"
 import classes from "./ProfileInfo.module.css";
 import Preloader from "../../../Preloader/Preloader";
+import ProfileStatus from "../ProfileStatus/ProfileStatus";
 
 const ProfileInfo = (props) => {
 
@@ -22,7 +23,11 @@ const ProfileInfo = (props) => {
                     : <img src="https://cdn0.iconfinder.com/data/icons/streamline-emoji-1/48/129-man-student-1-128.png"
                            alt=""/>
             }
+
+            <ProfileStatus props={props}/>
             </div>
+
+
             <div className={classes.person}>
                 <div className={classes.descriptContainer}>
                     <div className={classes.description}>Полное имя:</div>
