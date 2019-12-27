@@ -1,19 +1,17 @@
 import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getUser} from "../../../redux/profilePage-reducer";
+import {getStatus, getUser, updateStatus} from "../../../redux/profilePage-reducer";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
-import withAuthRedirect from "../../AuthRedirect/withAuthRedirect";
 
 
 class ProfileContainer extends React.Component {
-
     componentDidMount() {
-        let changeProfilePage = this.props.match.params.userId || 5471; // Find user ID ;-)
-        this.props.getUser(changeProfilePage)
+        const userID = this.props.match.params.userId || 5471; // Find user ID ;-)
+        this.props.getUser(userID);
+        this.props.getStatus(userID);
     }
-
     render() {
         return (
             <div>
@@ -26,15 +24,17 @@ class ProfileContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         profile: state.profilePage.profile,
+        status: state.profilePage.userStatus
     }
 };
 const mapDispatchToProps = {
-    getUser
+    getUser,
+    getStatus,
+    updateStatus
 };
 
 const UserProfileContainer = compose(
     connect(mapStateToProps, mapDispatchToProps),
-    withRouter,
-    withAuthRedirect)(ProfileContainer);
+    withRouter)(ProfileContainer);
 
 export default UserProfileContainer;

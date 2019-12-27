@@ -66,5 +66,5 @@ const mapDispatchToProps = {
 
 
 
-const UserContainer = compose(connect(mapStateToProps, mapDispatchToProps), withAuthRedirect) (UsersContainerComponent);
+const UserContainer = compose(connect(mapStateToProps, mapDispatchToProps)) (UsersContainerComponent);
 export default UserContainer;

@@ -9,9 +9,15 @@ const instance = axios.create({
 
 
 export const profilePage = {
-    getUserProfile(profilePage) {
-        return instance.get(`profile/${profilePage}`)
-    }
+    getUserProfile(userID) {
+        return instance.get(`profile/${userID}`)
+    },
+    getUserStatus(userID) {
+        return instance.get(`/profile/status/${userID}`)
+    },
+    updateUserStatus(status) {
+        return instance.put(`/profile/status/`, {status})
+    },
 };
 export const usersPage = {
     getUsers (currentPage, pageSize) {
