@@ -1,7 +1,6 @@
 import {profilePage} from "../components/Api/api";
 
 const ADD_POST_TO_WALL = "ADD-POST-TO-WALL";
-const ADD_TEMPPOST_TO_WALL = "ADD-TEMPPOST-TO-WALL";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const GET_USER_STATUS = "GET_USER_STATUS";
 const UPDATE_USER_STATUS = "UPDATE_USER_STATUS";
@@ -11,7 +10,6 @@ const stateByDefault = {
     postData: [
         {post: `message in the state tree`},
     ],
-    tempMessage: '',
     profile: null,
     userStatus: ''
 };
@@ -23,15 +21,8 @@ const profilePageReducer = (state = stateByDefault, action) => {
         // create and return copy of new values
         return {
             ...state,
-            postData: [...state.postData, {post: state.tempMessage}],
+            postData: [...state.postData, {post: action.message}],
             tempMessage: ''
-        };
-    }
-    if (action.type === ADD_TEMPPOST_TO_WALL) {
-        // create and return copy of new values
-        return {
-            ...state,
-            tempMessage: action.text
         };
     }
     if (action.type === SET_USER_PROFILE) {
@@ -56,12 +47,13 @@ const profilePageReducer = (state = stateByDefault, action) => {
     }
     return state
 };
+
 // Action creators
-    export const addPostActionCreator = () => ({type: "ADD-POST-TO-WALL"});
-    export const addTempPostActionCreator = (text) => ({type: "ADD-TEMPPOST-TO-WALL", text: text});
+    export const addPostActionCreator = (message) => ({type: "ADD-POST-TO-WALL", message});
     export const setUserProfile = (profile) => ({type: "SET_USER_PROFILE", profile});
     export const updateUserStatus = (status) => ({type: "UPDATE_USER_STATUS", status});
 
+// Thunk creators
     export const getUser = (page) => (dispatch) => {
         profilePage.getUserProfile(page)
             .then(response => dispatch(setUserProfile(response.data)))

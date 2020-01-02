@@ -1,6 +1,7 @@
 import React from "react"
 import classes from "./Send.module.css"
 import {NavLink} from "react-router-dom";
+import {AddMessageToTheForm} from "../../AddMessge/AddMessgeComponent";
 
 
 const Send = (props) => {
@@ -25,12 +26,10 @@ const Send = (props) => {
     };
     const messages = props.messages.map(el => <Chat message={el.message}/>);
 
-    // Get placeholder value
-    const textareaText = React.createRef();
-
-    // Dispatch functions
-    const addTempItem = () => props.changePlaceholder(textareaText.current.value);
-    const addItem = () => props.addPost();
+    // Dispatch function
+    const addMessage = (value) => {
+        props.addPost(value.message)
+    };
 
     return (
         <div className={classes.dialogs}>
@@ -40,14 +39,9 @@ const Send = (props) => {
             <div className={classes.chat}>
                 {messages}
                 <div className={classes.sendMessage}>
-                <textarea ref={textareaText} value={props.placeholderItem} onChange={addTempItem}
-                          placeholder="Write Massage"/>
-                    <div className={classes.send}>
-                        <button onClick={addItem}>Send</button>
-                    </div>
+                    <AddMessageToTheForm onSubmit={addMessage}/>
                 </div>
             </div>
-
         </div>
     )
 };

@@ -1,5 +1,47 @@
 .userLoginContainer {
     position: relative;
-    background: #f9f497;
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    height: 100vh;
 }
+
+.userLogin {
+    margin: 50px auto;
+    background: rgba(104, 93, 78, 0.65);
+    height: 300px;
+    width: 300px;
+    border: 1px #685D4E;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding-top: 20px;
+}
+
+form {
+    margin-top: 50px;
+}
+
+.inputArea {
+    margin: 5px;
+    position: relative;
+}
+
+.inputArea input {
+    padding: 7px;
+    border: 2px #685D4E;
+    border-radius: 5px;
+}
+
+.checkbox {
+    position: absolute;
+    left: 70px;
+}
+
+.inputArea button {
+    margin-top: 20px;
+    padding: 7px;
+    border: 2px #685D4E;
+    border-radius: 5px;
+}
+

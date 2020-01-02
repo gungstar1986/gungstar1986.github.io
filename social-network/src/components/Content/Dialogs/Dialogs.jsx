@@ -1,6 +1,6 @@
 import React from "react";
 import Send from "../Send/Send";
-import {addItemToChatActionCreator, addTempItemToChatActionCreator} from "../../../redux/messagePage-reducer";
+import {addItemToChatActionCreator} from "../../../redux/messagePage-reducer";
 import {connect} from "react-redux";
 
 // Set state values to the props
@@ -13,8 +13,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        changePlaceholder: (text) => dispatch(addTempItemToChatActionCreator(text)),
-        addPost: () => dispatch(addItemToChatActionCreator())
+        addPost: (value) => dispatch(addItemToChatActionCreator(value))
     }
 };
 

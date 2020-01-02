@@ -36,3 +36,9 @@ export const auth = {
     }
 };
 
+export const loginAPI = {
+    login() {
+        return instance.post('auth/login').then(response => response.data)
+    }
+};
+

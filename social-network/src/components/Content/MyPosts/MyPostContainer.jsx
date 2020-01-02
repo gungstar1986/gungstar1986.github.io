@@ -1,7 +1,7 @@
 import React from "react";
 import MyPosts from "./Posts";
 import {connect} from "react-redux";
-import {addPostActionCreator, addTempPostActionCreator} from "../../../redux/profilePage-reducer";
+import {addPostActionCreator} from "../../../redux/profilePage-reducer";
 import {compose} from "redux";
 
 // Set state values to the props
@@ -12,8 +12,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        addTempPostText: (text) => dispatch(addTempPostActionCreator(text)),
-        addPost: () => dispatch(addPostActionCreator())
+        addPost: (message) => dispatch(addPostActionCreator(message))
     }
 };
 

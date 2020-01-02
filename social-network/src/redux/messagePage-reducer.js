@@ -1,5 +1,4 @@
 const ADD_POST_TO_CHAT = "ADD-POST-TO-CHAT";
-const ADD_TEMPPOST_TO_CHAT = "ADD-TEMPPOST-TO-CHAT";
 
 // Default State statement
 const stateByDefault =  {
@@ -10,8 +9,7 @@ const stateByDefault =  {
         usersData: [
         {name: "Яна", id: 1},
         {name: "Тимур", id: 2}
-    ],
-        tempChat: ''
+    ]
 };
 
 // Store reducer
@@ -21,21 +19,12 @@ const messagePageReducer = (state = stateByDefault, action) => {
         // create and return copy of new values
         return {
             ...state,
-            messagesData: [...state.messagesData, {message: state.tempChat}],
-            tempChat : ''
+            messagesData: [...state.messagesData, {message: action.message}],
         }
-    } else if (action.type === ADD_TEMPPOST_TO_CHAT) {
-
-        // create and return copy of new values
-        return {
-            ...state,
-            tempChat: action.text
-        };
     }
     return state
 };
 
 // Action creators
-export const addItemToChatActionCreator = () => ({type: "ADD-POST-TO-CHAT"});
-export const addTempItemToChatActionCreator = (text) => ({type: "ADD-TEMPPOST-TO-CHAT", text: text});
+export const addItemToChatActionCreator = (message) => ({type: "ADD-POST-TO-CHAT", message});
 export default messagePageReducer;
