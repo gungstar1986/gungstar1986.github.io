@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./Posts.module.css"
 import MyMessage from "../Messages/Message";
-import {AddMessageToTheForm} from "../../AddMessge/AddMessgeComponent";
+import {AddMessageToTheForm} from "../../AddMessage/AddMessageComponent";
 
 
 
@@ -12,8 +12,8 @@ const MyPosts = (props) => {
 
     // Dispatch functions
     const addItem = (value) => {
-        console.log(value.message);
         props.addPost(value.message);
+        value.message = "";
     };
 
     return (

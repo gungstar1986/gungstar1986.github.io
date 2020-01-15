@@ -91,9 +91,32 @@
 }
 
 .notSelectedPage:hover {
-
-    font-size: 18pt;
     font-weight: bolder;
     transition: 0.1s ease;
+    color: red;
+}
+
+.paginatoin {
+    position: relative;
+
+}
+
+.left {
+    margin-top: 7px;
+    margin-bottom: 5px;
+    left: 0;
+    background: #c6cac8;
+    border: 2px solid #c6cac8;
+    cursor: pointer;
+}
+
+.right {
+    cursor: pointer;
+    margin-top: 7px;
+    margin-bottom: 5px;
+    left: 0;
+    background: #c6cac8;
+    border: 2px solid #c6cac8;
+    margin-left: 5px;
 }
 

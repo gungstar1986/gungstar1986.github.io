@@ -2,6 +2,7 @@ import React from "react";
 import Send from "../Send/Send";
 import {addItemToChatActionCreator} from "../../../redux/messagePage-reducer";
 import {connect} from "react-redux";
+import withAuthRedirect from "../../AuthRedirect/withAuthRedirect";
 
 // Set state values to the props
 const mapStateToProps = (state) => {
@@ -18,5 +19,5 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 // react-redux connect (need to be install with npm install)
-const Dialogs = connect(mapStateToProps, mapDispatchToProps)(Send);
+const Dialogs = connect(mapStateToProps, mapDispatchToProps)(withAuthRedirect(Send));
 export default Dialogs;

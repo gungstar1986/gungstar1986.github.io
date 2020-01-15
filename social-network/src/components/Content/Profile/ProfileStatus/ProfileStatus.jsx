@@ -7,6 +7,7 @@ class ProfileStatus extends React.Component {
         isEdit: false,
         status: this.props.status || "No status"
     };
+
     activate = () => {
         this.setState({
             isEdit: true
@@ -30,12 +31,15 @@ class ProfileStatus extends React.Component {
                 })
     }
 
+
     render() {
         return (
             <div className={classes.profileStatusContainer}>{
+
                 !this.state.isEdit
                     ? <div className={classes.status} onClick={this.activate}>{this.props.status || "No status"}</div>
                     : <div className={classes.editMode}>
+
                         <input onBlur={this.deactivate}
                                autoFocus={true}
                                value={this.state.status}

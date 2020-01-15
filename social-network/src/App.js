@@ -6,7 +6,7 @@ import Dialogs from "./components/Content/Dialogs/Dialogs";
 import {Route} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import {UserLogin as UserLogin} from "./components/UserLogin/UserLogin";
+import UserLogin from "./components/UserLogin/UserLogin";
 
 
 function App() {

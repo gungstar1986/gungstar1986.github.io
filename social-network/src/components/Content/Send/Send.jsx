@@ -1,7 +1,7 @@
 import React from "react"
 import classes from "./Send.module.css"
 import {NavLink} from "react-router-dom";
-import {AddMessageToTheForm} from "../../AddMessge/AddMessgeComponent";
+import {AddMessageToTheForm} from "../../AddMessage/AddMessageComponent";
 
 
 const Send = (props) => {
@@ -28,7 +28,8 @@ const Send = (props) => {
 
     // Dispatch function
     const addMessage = (value) => {
-        props.addPost(value.message)
+        props.addPost(value.message);
+        value.message = "";
     };
 
     return (

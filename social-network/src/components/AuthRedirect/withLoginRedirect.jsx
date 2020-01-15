@@ -3,11 +3,11 @@ import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 
 
-const withAuthRedirect = (Component) => {
+const withLoginRedirect = (Component) => {
 
-    class authRedirect extends React.Component {
+    class loginRedirect extends React.Component {
         render() {
-            if (!this.props.isAuth) return <Redirect to={"/login"}/>;
+            if (this.props.isAuth) return <Redirect to={"/profile"}/>;
             return <Component {...this.props}/>
         }
     }
@@ -17,7 +17,7 @@ const withAuthRedirect = (Component) => {
             isAuth: state.userAuthData.isAuth
         }
     };
-    return connect(mapStateToProps)(authRedirect);
+    return connect(mapStateToProps)(loginRedirect);
 };
-export default withAuthRedirect;
+export default withLoginRedirect;
 

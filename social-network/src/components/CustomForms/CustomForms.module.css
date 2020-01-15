@@ -1,0 +1,12 @@
+.lengthError {
+    border: 1px solid red;
+}
+
+.errorMessage {
+    padding: 5px;
+    background: #3ef416;
+}
+
+.errorForm {
+    background: rgb(249, 198, 188);
+}

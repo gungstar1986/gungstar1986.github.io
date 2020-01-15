@@ -22,7 +22,6 @@ const profilePageReducer = (state = stateByDefault, action) => {
         return {
             ...state,
             postData: [...state.postData, {post: action.message}],
-            tempMessage: ''
         };
     }
     if (action.type === SET_USER_PROFILE) {
